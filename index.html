@@ -1,0 +1,665 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Mother's Day ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+/* CUSTOM CURSOR */
+
+.cursor{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#ffd27d;
+    position:fixed;
+    pointer-events:none;
+    mix-blend-mode:screen;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 20px #ffd27d;
+}
+
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#ffb34722,transparent 30%),
+    radial-gradient(circle at bottom right,#ff5e7e22,transparent 30%);
+    z-index:-3;
+}
+
+/* FLOATING PARTICLES */
+
+.particle{
+    position:fixed;
+    color:#ff9fb5;
+    animation:floatUp linear infinite;
+    opacity:0.5;
+    z-index:-1;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(110vh) rotate(0deg);
+    }
+    to{
+        transform:translateY(-10vh) rotate(360deg);
+    }
+}
+
+/* LOADER */
+
+.loader{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#050816;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:10000;
+    transition:1s;
+}
+
+.loader h1{
+    font-size:3rem;
+    color:#ffd27d;
+    font-family:'Cormorant Garamond',serif;
+}
+
+.loader p{
+    margin-top:15px;
+    color:#ccc;
+}
+
+.loader-heart{
+    font-size:4rem;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+    padding:40px;
+    position:relative;
+}
+
+.hero h1{
+    font-size:6rem;
+    font-family:'Cormorant Garamond',serif;
+    color:#ffd27d;
+    animation:fadeUp 1.5s ease;
+}
+
+.hero p{
+    max-width:750px;
+    margin-top:25px;
+    line-height:2;
+    color:#ddd;
+    font-size:1.1rem;
+    animation:fadeUp 2s ease;
+}
+
+.scroll{
+    margin-top:40px;
+    color:#ffb6c1;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(10px);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* PHOTO GALLERY */
+
+.gallery{
+    padding:120px 10%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:40px;
+}
+
+.card{
+    height:450px;
+    border-radius:30px;
+    overflow:hidden;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:0.5s;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card:hover{
+    transform:scale(1.03) rotateY(5deg);
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card::after{
+    content:"Beautiful Memories ❤️";
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:25px;
+    background:linear-gradient(transparent,rgba(0,0,0,0.9));
+    font-size:1.2rem;
+}
+
+/* LETTER */
+
+.letter-section{
+    padding:120px 10%;
+    display:flex;
+    justify-content:center;
+}
+
+.letter{
+    max-width:850px;
+    background:#f8e7c9;
+    color:#222;
+    padding:60px;
+    border-radius:25px;
+    transform:rotate(-1deg);
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    font-family:cursive;
+    line-height:2.2;
+    position:relative;
+}
+
+.letter h2{
+    margin-bottom:20px;
+}
+
+/* TIMELINE */
+
+.timeline{
+    padding:120px 10%;
+}
+
+.timeline h2{
+    text-align:center;
+    font-size:4rem;
+    color:#ffd27d;
+    margin-bottom:70px;
+    font-family:'Cormorant Garamond',serif;
+}
+
+.timeline-container{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+}
+
+.timeline-item{
+    background:rgba(255,255,255,0.07);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    padding:35px;
+    border-radius:25px;
+    transition:0.4s;
+}
+
+.timeline-item:hover{
+    transform:translateX(10px);
+    background:rgba(255,255,255,0.1);
+}
+
+/* GAME */
+
+.game{
+    padding:120px 10%;
+    text-align:center;
+}
+
+.game h2{
+    font-size:4rem;
+    color:#ffd27d;
+    margin-bottom:50px;
+    font-family:'Cormorant Garamond',serif;
+}
+
+.game-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.box{
+    background:rgba(255,255,255,0.08);
+    border-radius:25px;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.5s;
+    min-height:350px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.box:hover{
+    transform:translateY(-10px);
+}
+
+.box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.memory-title{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:20px;
+    background:linear-gradient(transparent,rgba(0,0,0,0.95));
+    font-size:1.2rem;
+    z-index:2;
+}
+
+.message{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    opacity:0;
+    transition:0.5s;
+    line-height:1.8;
+    text-align:center;
+    z-index:3;
+    font-size:1rem;
+}
+
+.box.active .message{
+    opacity:1;
+}
+
+/* AUDIO BUTTON */
+
+.audio-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#ffd27d;
+    color:#111;
+    border:none;
+    padding:15px 20px;
+    border-radius:50px;
+    font-weight:bold;
+    cursor:pointer;
+    z-index:999;
+}
+
+/* ENDING */
+
+.ending{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+    padding:40px;
+}
+
+.ending h1{
+    font-size:5rem;
+    color:#ffd27d;
+    font-family:'Cormorant Garamond',serif;
+}
+
+.ending p{
+    margin-top:25px;
+    color:#ddd;
+    line-height:2;
+    max-width:700px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3.5rem;
+}
+
+.timeline h2,
+.game h2,
+.ending h1{
+    font-size:2.8rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="cursor"></div>
+
+<!-- LOADER -->
+
+<div class="loader" id="loader">
+<div class="loader-heart">❤️</div>
+<h1>Loading Memories...</h1>
+<p>Preparing something special for Mom ✨</p>
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Happy Mother's Day ❤️</h1>
+
+<p>
+To the woman who became my first teacher,
+my biggest strength,
+my safest home,
+and my forever inspiration.
+</p>
+
+<div class="scroll">Scroll To Begin ✨</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery">
+
+<div class="card">
+<img src="mom1.jpg">
+</div>
+
+<div class="card">
+<img src="mom2.jpg">
+</div>
+
+<div class="card">
+<img src="mom3.jpg">
+</div>
+
+</section>
+
+<!-- LETTER -->
+
+<section class="letter-section">
+
+<div class="letter">
+
+<h2>Dear Mom ❤️</h2>
+
+<p id="typing"></p>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="timeline">
+
+<h2>Your Journey ✨</h2>
+
+<div class="timeline-container">
+
+<div class="timeline-item">
+<h3>👩‍🏫 Teacher</h3>
+<p>You inspired students with knowledge and kindness.</p>
+</div>
+
+<div class="timeline-item">
+<h3>🏫 Principal</h3>
+<p>You became a leader who shaped futures.</p>
+</div>
+
+<div class="timeline-item">
+<h3>🏠 Mother</h3>
+<p>You filled our lives with love, strength, and warmth.</p>
+</div>
+
+<div class="timeline-item">
+<h3>❤️ Inspiration</h3>
+<p>You became the light guiding everyone around you.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- GAME -->
+
+<section class="game">
+
+<h2>Click The Memories 💖</h2>
+
+<div class="game-grid">
+
+<div class="box">
+<img src="mom4.jpg">
+<div class="memory-title">🌸 Memory 1</div>
+<div class="message">
+Thank you for every sacrifice you made silently.
+</div>
+</div>
+
+<div class="box">
+<img src="mom5.jpg">
+<div class="memory-title">📚 Memory 2</div>
+<div class="message">
+You taught me strength through your actions.
+</div>
+</div>
+
+<div class="box">
+<img src="mom6.jpg">
+<div class="memory-title">✨ Memory 3</div>
+<div class="message">
+Your love became my biggest motivation.
+</div>
+</div>
+
+<div class="box">
+<img src="mom4.jpg">
+<div class="memory-title">💖 Memory 4</div>
+<div class="message">
+Home feels beautiful because of you.
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ENDING -->
+
+<section class="ending">
+
+<h1>Forever Grateful ❤️</h1>
+
+<p>
+You didn’t just teach lessons.
+You taught life, kindness, courage, and love.
+
+Happy Mother’s Day to the most beautiful soul.
+</p>
+
+</section>
+
+<!-- MUSIC -->
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="audio-btn" onclick="toggleMusic()">🎵 Music</button>
+
+<script>
+
+/* LOADER */
+
+window.onload = ()=>{
+    setTimeout(()=>{
+        document.getElementById("loader").style.opacity="0";
+        document.getElementById("loader").style.pointerEvents="none";
+    },2500);
+}
+
+/* CUSTOM CURSOR */
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+
+/* FLOATING HEARTS */
+
+function createParticle(){
+
+    const particle = document.createElement("div");
+
+    particle.classList.add("particle");
+
+    particle.innerHTML = ["❤️","✨","🌸","⭐"][Math.floor(Math.random()*4)];
+
+    particle.style.left = Math.random()*100 + "vw";
+
+    particle.style.fontSize = Math.random()*20 + 20 + "px";
+
+    particle.style.animationDuration = Math.random()*5 + 5 + "s";
+
+    document.body.appendChild(particle);
+
+    setTimeout(()=>{
+        particle.remove();
+    },10000);
+}
+
+setInterval(createParticle,300);
+
+/* LETTER TYPING */
+
+const text = `
+You taught lessons beyond books.
+
+You carried dreams silently.
+
+You shaped futures at school,
+and filled our home with love.
+
+Thank you for every sacrifice,
+every late night,
+every smile behind tired eyes.
+
+You are not just my mother.
+You are my greatest blessing.
+
+Happy Mother’s Day ❤️
+`;
+
+let i = 0;
+
+function typeWriter(){
+
+    if(i < text.length){
+
+        document.getElementById("typing").innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typeWriter,40);
+    }
+}
+
+typeWriter();
+
+/* MEMORY GAME */
+
+const boxes = document.querySelectorAll(".box");
+
+boxes.forEach(box=>{
+    box.addEventListener("click",()=>{
+        box.classList.toggle("active");
+    });
+});
+
+/* MUSIC */
+
+const music = document.getElementById("music");
+
+function toggleMusic(){
+
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+}
+
+</script>
+
+</body>
+</html>
+```
